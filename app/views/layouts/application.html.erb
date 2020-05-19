@@ -19,7 +19,6 @@
         </div>
         <div class="menu-item">
         <% if user_signed_in? %>
-          <%= menu_link_to 'Friends List', friends_list_path %>
           <%= menu_link_to 'Pending invitation', pending_invite_path %>:
           <span><%= current_user.pending_invites.count %></>
         <% end %>
