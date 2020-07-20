@@ -2,7 +2,7 @@
 
 > This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
 
-## Built With
+## Built With me
 
 - Ruby v2.7.0
 - Ruby on Rails version 5.2.4
@@ -14,7 +14,7 @@ TBA
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple examples of steps.
 
 ### Prerequisites
 
