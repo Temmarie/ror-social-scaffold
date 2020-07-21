@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-
   describe 'Association tests' do
     it { should belong_to(:user) }
     it { should have_many(:likes).dependent(:destroy) }
@@ -17,3 +16,4 @@ RSpec.describe Post, type: :model do
     }
   end
 end
+
