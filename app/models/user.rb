@@ -14,12 +14,21 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
 
   def friends
-    friends_array = friendships.map { |friendship| friendship.friend if friendship.status }
-    friends_arrayb = inverse_friendships.map { |friendship| friendship.user if friendship.status }
+    friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
+    friends_arrayb = inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
     friends_array.concat(friends_arrayb)
     friends_array.compact
   end
 
+<<<<<<< HEAD
+=======
+  def send_invitation(user_id)
+    @friendship = Friendship.new(user_id: id, friend_id: user_id)
+    @friendship.confirmed = false
+    @friendship.save
+  end
+
+>>>>>>> 3b722815322792a07de1192f2daf9ca93356a072
   # Users who have yet to confirme friend requests
   def pending_friends
     friendships.map { |friendship| friendship.friend unless friendship.confirmed }.compact
@@ -36,6 +45,24 @@ class User < ApplicationRecord
     friendship.save
   end
 
+<<<<<<< HEAD
+=======
+  def friend_invites(user_id)
+    friendship = friendships.where(friend_id: user_id).first
+    true if friendship && friendship.confirmed == false
+  end
+
+  def receive_invitation(user_id)
+    friendship = inverse_friendships.where(user_id: user_id).first
+    true if friendship && friendship.confirmed == false
+  end
+
+  def reject_friend(user)
+    friendship = inverse_friendships.where(user_id: user).first
+    friendship.destroy
+  end
+
+>>>>>>> 3b722815322792a07de1192f2daf9ca93356a072
   def friend?(user)
     friends.include?(user)
   end

@@ -14,7 +14,29 @@
  *= require_self
  */
 .add_friend {
-  color: blueviolet;
-  background-color: pink;
+  color: white;
+  font-size: 12px;
+  background-color: #82b952;
+  padding: 0.5em;
+}
+
+.pending {
+  color: white;
+  font-size: 12px;
+  background-color: #997b19;
+  padding: 0.5em;
+}
+
+.accept{
+  color: white;
+  font-size: 12px;
+  background-color: green;
+  padding: 0.5em;
+}
+
+.decline{
+  color: white;
+  font-size: 12px;
+  background-color: rgb(201, 9, 9);
   padding: 0.5em;
 }
