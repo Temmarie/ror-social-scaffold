@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   def friends
     friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
-    friends_arrayb = inverse_friendships.map { |friendship| friendship.user if friendship.status }
+    friends_arrayb = inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
     friends_array.concat(friends_arrayb)
     friends_array.compact
   end
@@ -49,7 +49,7 @@ class User < ApplicationRecord
 
   def receive_invitation(user_id)
     friendship = inverse_friendships.where(user_id: user_id).first
-    true if friendship && friendship.status == false
+    true if friendship && friendship.confirmed == false
   end
 
   def reject_friend(user)
