@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   def send_request
-    if current_user.send_invitation.params[:user_id]
+    if current_user.send_invitation(params[:user_id])
       flash.notice = 'Friend request sent'
       redirect_to users_path
     else
