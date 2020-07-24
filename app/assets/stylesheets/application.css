@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+.add_friend {
+  color: blueviolet;
+  background-color: pink;
+  padding: 0.5em;
+}
