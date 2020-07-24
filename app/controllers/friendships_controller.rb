@@ -32,7 +32,7 @@ class FriendshipsController < ApplicationController
     friend&.delete
     inverse_friend&.delete
   end
-  
+
   def destroy
     user = User.find(params[:user_id])
     friend = current_user.friendships.find_by_friend_id(user)
@@ -44,6 +44,4 @@ class FriendshipsController < ApplicationController
       flash.now[:notice] = 'error occurred'
     end
   end
-
-
 end
