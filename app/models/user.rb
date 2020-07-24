@@ -20,6 +20,12 @@ class User < ApplicationRecord
     friends_array.compact
   end
 
+  def send_invitation(user_id)
+    @friendship = Friendship.new(user_id: id, friend_id: user_id)
+    @friendship.status = false
+    @friendship.save
+  end
+
   # Users who have yet to confirme friend requests
   def pending_friends
     friendships.map { |friendship| friendship.friend unless friendship.confirmed }.compact
@@ -31,9 +37,24 @@ class User < ApplicationRecord
   end
 
   def confirm_friend(user)
-    friendship = inverse_friendships.find { |friend| friend.user == user }
+    friendship = inverse_friendships.where(user_id: user).first
     friendship.confirmed = true
     friendship.save
+  end
+
+  def friend_invites(user_id)
+    friendship = friendships.where(friend_id: user_id).first
+    true if friendship && friendship.status == false
+  end
+
+  def receive_invitation(user_id)
+    friendship = inverse_friendships.where(user_id: user_id).first
+    true if friendship && friendship.status == false
+  end
+
+  def reject_friend(user)
+    friendship = inverse_friendships.where(user_id: user).first
+    friendship.destroy
   end
 
   def friend?(user)
