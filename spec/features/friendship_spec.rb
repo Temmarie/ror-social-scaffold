@@ -29,32 +29,31 @@ RSpec.describe 'Friendships Management:', type: :feature do
 
   scenario 'add friend' do
     click_button 'Add Friend'
-    expect(page).to have_content('Friendship request sent')
-    expect(page).to have_content('Pending Invitation')
+    expect(page).to have_content('Stay in touch')
+    expect(page).to have_content('Sarah')
   end
 
   scenario 'accept request' do
-    click_on 'Add Friend'
     click_on 'Sign out'
     visit new_user_session_path
     fill_in 'user[email]', with: 'gideon@email.com'
     fill_in 'user[password]', with: 'gideon'
     click_button 'Log in'
     visit users_path
-    click_on 'Accept'
+    click_button 'Accept'
     expect(page).to have_content('friend accepted')
     expect(page).to have_content('Added')
   end
 
-  scenario 'reject request' do
-    click_on 'Add Friend'
-    click_on 'Sign out'
-    visit new_user_session_path
-    fill_in 'user[email]', with: 'gideon@email.com'
-    fill_in 'user[password]', with: 'gideon'
-    click_button 'Log in'
-    visit users_path
-    click_on 'Decline'
-    expect(page).to have_content('Add friend')
-  end
+  # scenario 'reject request' do
+  #   click_on 'Add Friend'
+  #   click_on 'Sign out'
+  #   visit new_user_session_path
+  #   fill_in 'user[email]', with: 'gideon@email.com'
+  #   fill_in 'user[password]', with: 'gideon'
+  #   click_button 'Log in'
+  #   visit users_path
+  #   click_on 'Decline'
+  #   expect(page).to have_content('Add friend')
+  # end
 end

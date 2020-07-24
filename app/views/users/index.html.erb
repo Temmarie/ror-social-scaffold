@@ -7,7 +7,7 @@
           <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
         </span>
 
-        <button class = "add_friend">
+       
         <% if current_user.friend_invites(user) %>
             <button  class = "pending"> Pending Invitation </button>
           <% elsif current_user.receive_invitation(user)%>
@@ -18,7 +18,6 @@
             <% elsif current_user.friend?(user) %>
             <button class = "add_friend">Added</button>
           <% end %>
-        </button>
 
 
 
