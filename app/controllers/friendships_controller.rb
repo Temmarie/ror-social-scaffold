@@ -40,9 +40,14 @@ class FriendshipsController < ApplicationController
       friend.delete
       flash.notice = "#{user.name} has been removed as your friend"
       redirect_to users_path
-    else
-      flash.now[:notice] = 'error occurred'
     end
   end
+
+  # def destroy
+  #   @friendship = current_user.friendships.find_by_friend_id(user)
+  #   @friendship.destroy
+  #   flash[:notice] = "Removed friendship."
+  #   redirect_to current_user
+  # end
 
 end
