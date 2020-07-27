@@ -52,21 +52,21 @@ class FriendshipsController < ApplicationController
   #   redirect_to users_path
   # end
 
-  def destroy
-    user = User.find(params[:user_id])
-    friend_request = user.friendships.find_by_friend_id(user.id)
+  # def destroy
+  #   user = User.find(params[:user_id])
+  #   friend_request = user.friendships.find_by_friend_id(user.id)
   
-    friendship = current_user.friendships.find_by_friend_id(user.id)
-    if friendship.nil?
-      friend_request.destroy
-      flash[:notice] = "Removed friend."
-    else
-      friendship.destroy
-      friend_request.destroy
-      flash[:notice] = "Removed friendship."
-    end
-    redirect_to users_path
-  end
+  #   friendship = current_user.friendships.find_by_friend_id(user.id)
+  #   if friendship.nil?
+  #     friend_request.destroy
+  #     flash[:notice] = "Removed friend."
+  #   else
+  #     friendship.destroy
+  #     friend_request.destroy
+  #     flash[:notice] = "Removed friendship."
+  #   end
+  #   redirect_to users_path
+  # end
 
 
   # def destroy
@@ -80,6 +80,13 @@ class FriendshipsController < ApplicationController
   #     flash.now[:notice] = 'error occured'
   #   end
   # end
+
+  def destroy
+    user = User.find(params[:user_id])
+    friend = current_user.friendships.find_by_friend_id(user)
+    friend.destroy
+    redirect_to user_path(id: current_user.id)
+  end
 
   private
 
