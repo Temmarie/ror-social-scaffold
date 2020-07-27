@@ -72,9 +72,10 @@ class FriendshipsController < ApplicationController
   #   user = User.find(params[:user_id])
   #   friend = current_user.friendships.find_by_friend_id(user)
   #   if friend
-  #     friend.delete
-  #     flash.notice = "#{user.name} has been removed as your friend"
-  #     redirect_to users_path
+  #     # friend.destroy
+  #     # flash.notice = "#{user.name} has been removed as your friend"
+  #     # redirect_to users_path
+  #   puts "hey giberrityhj fvb fgbhnj cfgvbh jfcvg hb \n \n rtgyhun fgbhnj fvgbhnj vgbhnj fvgbh fvgbh "
   #   else
   #     flash.now[:notice] = 'error occured'
   #   end
@@ -82,9 +83,11 @@ class FriendshipsController < ApplicationController
 
   def destroy
     user = User.find(params[:user_id])
-    friend = current_user.friendships.find_by_friend_id(user)
+    friend = current_user.friendships.find_by_friend_id(user.id)
+    inverse_friend = current_user.inverse_friendships.find_by_user_id(user.id)
     friend.destroy
-    redirect_to user_path(id: current_user.id)
+    inverse_friend.destroy
+    redirect_to users_path
   end
 
   private
@@ -92,4 +95,5 @@ class FriendshipsController < ApplicationController
   def friendship_params
     params.permit(:user_id, :friend_id)
   end
+
 end
