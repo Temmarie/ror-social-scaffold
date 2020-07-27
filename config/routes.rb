@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
   root 'posts#index'
-  delete 'remove_friend' => 'friendships#destroy'
+
   get 'send_request' => 'friendships#send_request'
   get 'accept_invite' => 'friendships#accept_invitation'
   get 'pending_request' => 'friendships#pending_invitation'
   delete 'reject_invite' => 'friendships#reject_invitation'
+  delete 'remove_friend' => 'friendships#destroy'
 
 
 
