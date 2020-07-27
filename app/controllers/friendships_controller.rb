@@ -1,4 +1,8 @@
 class FriendshipsController < ApplicationController
+  def index
+    @friendship = Friendship.all
+  end
+
   def send_request
     if current_user.send_invitation(params[:user_id])
       flash.notice = 'Friend request sent'
@@ -33,11 +37,33 @@ class FriendshipsController < ApplicationController
     inverse_friend&.delete
   end
 
+  # def destroy
+  #   user = User.find(params[:user_id])
+  #   @relationship = current_user.friendships.find_by_friend_id(user)
+  #   if @relationship.present?
+  #     @relationship.destroy
+  #   end
+  #   redirect_to users_path
+  # end
+
+  # def destroy
+  #   @relationship = Friendship.find(params[:id])
+  #   @relationship.destroy
+  #   redirect_to users_path
+  # end
+
   def destroy
     user = User.find(params[:user_id])
-    @relationship = current_user.friendships.find_by_friend_id(user)
-    if @relationship.present?
-      @relationship.destroy
+    friend_request = user.friendships.find_by_friend_id(user.id)
+  
+    friendship = current_user.friendships.find_by_friend_id(user.id)
+    if friendship.nil?
+      friend_request.destroy
+      flash[:notice] = "Removed friend."
+    else
+      friendship.destroy
+      friend_request.destroy
+      flash[:notice] = "Removed friendship."
     end
     redirect_to users_path
   end
@@ -55,4 +81,9 @@ class FriendshipsController < ApplicationController
   #   end
   # end
 
+  private
+
+  def friendship_params
+    params.permit(:user_id, :friend_id)
+  end
 end
