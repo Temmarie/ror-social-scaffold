@@ -2,7 +2,7 @@
 
 > This repo includes intial code for social media app with basic styling. A social media app where you can have friends, make posts, comment and drop likes.
 
-![Capture](https://user-images.githubusercontent.com/53125243/88557146-24091400-d02a-11ea-8370-b3241f728a49.PNG)
+![2](https://user-images.githubusercontent.com/53125243/88557333-616da180-d02a-11ea-82ab-8699d1d1c68a.PNG)
 
 ## Built With me
 
