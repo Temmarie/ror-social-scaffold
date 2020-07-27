@@ -55,7 +55,7 @@ class FriendshipsController < ApplicationController
   # def destroy
   #   user = User.find(params[:user_id])
   #   friend_request = user.friendships.find_by_friend_id(user.id)
-  
+
   #   friendship = current_user.friendships.find_by_friend_id(user.id)
   #   if friendship.nil?
   #     friend_request.destroy
@@ -67,7 +67,6 @@ class FriendshipsController < ApplicationController
   #   end
   #   redirect_to users_path
   # end
-
 
   # def destroy
   #   user = User.find(params[:user_id])
