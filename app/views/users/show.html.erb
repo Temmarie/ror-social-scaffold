@@ -7,7 +7,7 @@
           <%= render @posts %>
         </ul>
         <%else%>
-        <h3>You need add friend to view their posts</h3>
+        <h3>You need <button class = "add_friend"><%= link_to 'Add Friend', send_request_path(user_id: @user.id) , class:"btn btn-success" %></button> to view their posts</h3>
       <%end%>
 
   </article>
