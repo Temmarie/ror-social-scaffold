@@ -15,9 +15,9 @@
         <button class = "decline"> <%= link_to 'Decline', reject_invite_path(user_id: user.id), method: :delete, class:"btn btn-danger" %></button>
           <% elsif !current_user.friend?(user) && current_user.id != user.id %>
             <button class = "add_friend"><%= link_to 'Add Friend', send_request_path(user_id: user.id) , class:"btn btn-success" %></button>
-              <% elsif current_user.friend?(user) %>
-            <button class = "decline"><%= link_to 'Remove friend', remove_friend_path(user_id: user.id), method: :delete, data: {confirm: "Are you sure you want to remove friend?"}, class: "btn btn-danger" %> </button>
-           <% end %>
+            <% elsif current_user.friend?(user) %>
+            <button class = "add_friend">Added</button>
+          <% end %>
 
 
 
