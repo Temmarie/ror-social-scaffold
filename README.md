@@ -7,11 +7,6 @@
 - Ruby v2.7.0
 - Ruby on Rails version 5.2.4.3
 
-## Live Demo
-
-TBA
-
-
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
@@ -62,8 +57,18 @@ Open `http://localhost:3000/` in your browser.
 https://cryptic-cliffs-93248.herokuapp.com/
 
 ## Authors
+👤 Kotoku Kennedy
 
-TBA
+Github: @kotoku-code
+Twitter: @kennedykotoku
+Linkedin: Kotoku Kennedy
+
+
+👤 Grace Tamara Ekunola
+
+Github: @Temmarie
+Twitter: @TemmarieW
+Linkedin: Grace Tife Ekunola
 
 ## 🤝 Contributing
 
@@ -75,11 +80,5 @@ Feel free to check the [issues page](issues/).
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
 
-TBA
-
-## 📝 License
-
-TBA
 
