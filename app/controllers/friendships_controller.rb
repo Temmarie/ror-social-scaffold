@@ -37,50 +37,6 @@ class FriendshipsController < ApplicationController
     inverse_friend&.delete
   end
 
-  # def destroy
-  #   user = User.find(params[:user_id])
-  #   @relationship = current_user.friendships.find_by_friend_id(user)
-  #   if @relationship.present?
-  #     @relationship.destroy
-  #   end
-  #   redirect_to users_path
-  # end
-
-  # def destroy
-  #   @relationship = Friendship.find(params[:id])
-  #   @relationship.destroy
-  #   redirect_to users_path
-  # end
-
-  # def destroy
-  #   user = User.find(params[:user_id])
-  #   friend_request = user.friendships.find_by_friend_id(user.id)
-
-  #   friendship = current_user.friendships.find_by_friend_id(user.id)
-  #   if friendship.nil?
-  #     friend_request.destroy
-  #     flash[:notice] = "Removed friend."
-  #   else
-  #     friendship.destroy
-  #     friend_request.destroy
-  #     flash[:notice] = "Removed friendship."
-  #   end
-  #   redirect_to users_path
-  # end
-
-  # def destroy
-  #   user = User.find(params[:user_id])
-  #   friend = current_user.friendships.find_by_friend_id(user)
-  #   if friend
-  #     # friend.destroy
-  #     # flash.notice = "#{user.name} has been removed as your friend"
-  #     # redirect_to users_path
-  #   puts "hey giberrityhj fvb fgbhnj cfgvbh jfcvg hb \n \n rtgyhun fgbhnj fvgbhnj vgbhnj fvgbh fvgbh "
-  #   else
-  #     flash.now[:notice] = 'error occured'
-  #   end
-  # end
-
   def destroy
     user = User.find(params[:user_id])
     friend = current_user.friendships.find_by_friend_id(user.id)
